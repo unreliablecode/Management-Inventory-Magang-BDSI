@@ -1,4 +1,3 @@
-// db.php
 <?php
 $host = 'unreliablecode.net'; // Database host
 $user = 'root';      // Database username

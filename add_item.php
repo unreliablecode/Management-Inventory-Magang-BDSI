@@ -1,4 +1,3 @@
-// add_item.php
 <?php
 session_start();
 require 'db.php'; // Ensure this file contains your database connection logic

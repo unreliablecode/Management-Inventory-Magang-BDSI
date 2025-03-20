@@ -1,4 +1,3 @@
-// add_request.php
 <?php
 session_start();
 require 'db.php';
@@ -11,6 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $requester_name = trim($_POST['requester_name']);
     $item = trim($_POST['item']);
+    
     $errors = [];
 
     // Validate input
@@ -20,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($item)) {
         $errors['item'] = 'Item is required.';
     }
+
+    var_dump(empty($errors));
 
     // If no errors, insert request into database
     if (empty($errors)) {

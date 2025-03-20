@@ -30,6 +30,7 @@ $result = $stmt->get_result();
                 <th>Item Name</th>
                 <th>Description</th>
                 <th>Status</th>
+                <th>Taken By</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -40,6 +41,7 @@ $result = $stmt->get_result();
                     <td><?php echo $item['item_name']; ?></td>
                     <td><?php echo $item['description']; ?></td>
                     <td><?php echo $item['status']; ?></td>
+                    <td><?php echo $item['taken_by']; ?></td>
                     <td>
                         <a href="remove_item.php?id=<?php echo $item['id']; ?>">Remove</a>
                         <a href="update_item_status.php?id=<?php echo $item['id']; ?>">Update Status</a>

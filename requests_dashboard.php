@@ -29,6 +29,7 @@ $result = $stmt->get_result();
                 <th>ID</th>
                 <th>Requester Name</th>
                 <th>Item</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +38,7 @@ $result = $stmt->get_result();
                     <td><?php echo $request['id']; ?></td>
                     <td><?php echo $request['requester_name']; ?></td>
                     <td><?php echo $request['item']; ?></td>
+                    <td><?php echo $request['status']; ?></td>
                 </tr>
             <?php endwhile; ?>
         </tbody>

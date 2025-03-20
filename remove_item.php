@@ -7,8 +7,9 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $item_id = $_POST['item_id'];
+// Check if the item ID is provided in the URL
+if (isset($_GET['id'])) {
+    $item_id = $_GET['id'];
 
     // Validate input
     if (empty($item_id)) {
@@ -18,19 +19,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Remove item from the database
     $stmt = $conn->prepare("DELETE FROM inventory WHERE id = ?");
-    $stmt->bind_param("i", $item_id);
+    $stmt->bind_param("i", $item_id); // Bind the item ID as an integer
 
     if ($stmt->execute()) {
         echo "Item removed successfully.";
+        header("Location: inventory_dashboard.php");
     } else {
-        echo "Error removing item: " . $conn->error;
+        echo "Error removing item: " . $stmt->error;
     }
 
     $stmt->close();
-    $conn->close();
 } else {
-    // If not a POST request, redirect to inventory dashboard or show an error
-    header("Location: inventory_dashboard.php");
-    exit();
+    echo "No item ID provided.";
 }
+
+$conn->close();
 ?>

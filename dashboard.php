@@ -5,6 +5,27 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
+require 'db.php';
+// SQL query to count the total rows in the 'inventory' table
+$sql_inventory = "SELECT COUNT(*) AS total_rows FROM inventory WHERE status = 'available'";
+$sql_request = "SELECT COUNT(*) AS total_rows FROM material_request";
+
+// Execute the queries
+$result_inventory = $conn->query($sql_inventory);
+$result_request = $conn->query($sql_request);
+
+// Fetch the results and assign them to variables
+$inventory_count = 0;
+$request_count = 0;
+
+if ($result_inventory && $row_inventory = $result_inventory->fetch_assoc()) {
+    $inventory_count = $row_inventory['total_rows'];
+}
+
+if ($result_request && $row_request = $result_request->fetch_assoc()) {
+    $request_count = $row_request['total_rows'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -631,15 +652,18 @@ $conn->close();
                                     <div class="chart-pie pt-4 pb-2">
                                         <canvas id="myPieChart"></canvas>
                                     </div>
+                                    <script src="js\demo\chart-pie-demo.js"></script>
+                                    <script>
+                                        // Pass the PHP values into JavaScript variables
+                                        var inventoryCount = <?php echo $inventory_count; ?>;
+                                        var requestCount = <?php echo $request_count; ?>;
+                                    </script>
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
+                                            <i class="fas fa-circle text-primary"></i> Total Item
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
+                                            <i class="fas fa-circle text-success"></i> Material Request
                                         </span>
                                     </div>
                                 </div>
@@ -810,7 +834,7 @@ $conn->close();
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                    <span>Copyright &copy; BDSI IT Department 2025</span>
                     </div>
                 </div>
             </footer>

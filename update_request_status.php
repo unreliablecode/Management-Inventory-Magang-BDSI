@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
         $status = 'pending';
     }
     // Update the status in the database
-    $stmt = $conn->prepare("UPDATE material_request SET status = ? WHERE id = ?");
+    $stmt = $conn->prepare("UPDATE material_request SET status = ?, last_changed = NOW() WHERE id = ?");
     $stmt->bind_param("si", $status, $id);
 
     if ($stmt->execute()) {

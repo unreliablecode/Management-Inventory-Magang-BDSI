@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>IT BDSI - Material Requests</title>
+    <title>IT BDSI - Item Manager</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -443,7 +443,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                    <span>Copyright &copy; BDSI IT Department 2025</span>
                     </div>
                 </div>
             </footer>

@@ -23,7 +23,7 @@ $result = $stmt->get_result();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>IT BDSI - Material Requests</title>
+    <title>IT BDSI - Item Manager</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -395,7 +395,9 @@ $result = $stmt->get_result();
                                         <th>Item Name</th>
                                         <th>Description</th>
                                         <th>Status</th>
+                                        <th>Added Date</th>
                                         <th>Taken By</th>
+                                        <th>Taken Date</th>
                                         <th>Actions</th>
                                     </tr>
                                     <tbody>
@@ -405,7 +407,9 @@ $result = $stmt->get_result();
                                             <td><?php echo $item['item_name']; ?></td>
                                             <td><?php echo $item['description']; ?></td>
                                             <td><?php echo $item['status']; ?></td>
+                                            <td><?php echo $item['added_date']; ?></td>
                                             <td><?php echo $item['taken_by']; ?></td>
+                                            <td><?php echo $item['taken_date']; ?></td>
                                             <td>
                                             <a href="remove_item.php?id=<?php echo $item['id']; ?>" class="btn btn-primary btn-icon-split btn-sm"><span class="text">Remove</span></a>
                                             <a href="update_item_status.php?id=<?php echo $item['id']; ?>" class="btn btn-primary btn-icon-split btn-sm"><span class="text">Edit</span></a>
@@ -429,7 +433,7 @@ $result = $stmt->get_result();
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; BDSI IT Department 2025</span>
                     </div>
                 </div>
             </footer>

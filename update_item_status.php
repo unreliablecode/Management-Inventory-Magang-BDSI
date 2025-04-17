@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($errors)) {
         // Prepare the SQL statement
         if ($status === 'taken') {
-            $stmt = $conn->prepare("UPDATE inventory SET status = ?, taken_by = ? WHERE id = ?");
+            $stmt = $conn->prepare("UPDATE inventory SET status = ?, taken_by = ?, taken_date = NOW() WHERE id = ?");
             $stmt->bind_param("ssi", $status, $taken_by, $item_id);
         } else {
             $stmt = $conn->prepare("UPDATE inventory SET status = ?, taken_by = NULL WHERE id = ?");
@@ -467,7 +467,7 @@ if ($item_id > 0) {
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                    <span>Copyright &copy; BDSI IT Department 2025</span>
                     </div>
                 </div>
             </footer>

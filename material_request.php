@@ -395,6 +395,8 @@ $result = $stmt->get_result();
                                         <th>Requester Name</th>
                                         <th>Item</th>
                                         <th>Status</th>
+                                        <th>Added Date</th>
+                                        <th>Last Changed</th>
                                         <th>Action</th>
                                     </tr>
                                     <tbody>
@@ -404,10 +406,12 @@ $result = $stmt->get_result();
                                             <td><?php echo $request['requester_name']; ?></td>
                                             <td><?php echo $request['item']; ?></td>
                                             <td><?php echo $request['status']; ?></td>
+                                            <td><?php echo $request['added_date']; ?></td>
+                                            <td><?php echo $request['last_changed']; ?></td>
                                             <td>
                                             <a href="remove_request.php?id=<?php echo $request['id']; ?>" class="btn btn-primary btn-icon-split btn-sm"><span class="text">Remove</span></a>
                                             <a href="update_request_status.php?id=<?php echo $request['id']; ?>&status=<?php echo $request['status']; ?>" class="btn btn-primary btn-icon-split btn-sm"><span class="text">Change Status</span></a>
-                                            </td>   
+                                            </td>
                                         </tr>
                                     <?php endwhile; ?>
                                     </tbody>
@@ -427,7 +431,7 @@ $result = $stmt->get_result();
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                    <span>Copyright &copy; BDSI IT Department 2025</span>
                     </div>
                 </div>
             </footer>

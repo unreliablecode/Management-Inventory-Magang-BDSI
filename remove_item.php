@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
 
     if ($stmt->execute()) {
         echo "Item removed successfully.";
-        header("Location: inventory_dashboard.php");
+        header("Location: item_manager.php");
     } else {
         echo "Error removing item: " . $stmt->error;
     }

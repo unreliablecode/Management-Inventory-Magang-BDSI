@@ -2,6 +2,11 @@
 session_start();
 require 'db.php';
 
+if (isset($_SESSION['user_id'])) {
+  header("Location: dashboard.php");
+  exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);

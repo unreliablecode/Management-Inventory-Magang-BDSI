@@ -102,68 +102,6 @@ if ($result_request && $row_request = $result_request->fetch_assoc()) {
                 </div>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>-->
-
-            <!-- Divider -->
-            <!-- <hr class="sidebar-divider"> -->
-
-            <!-- Heading -->
-            <!-- <div class="sidebar-heading">
-                Materials
-            </div> -->
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li> -->
-
-            <!-- Nav Item - Charts -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li> -->
-
-            <!-- Nav Item - Tables -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li> -->
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -171,13 +109,6 @@ if ($result_request && $row_request = $result_request->fetch_assoc()) {
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
-            <!-- Sidebar Message -->
-            <!-- <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>-->
 
         </ul>
         <!-- End of Sidebar -->
@@ -415,30 +346,29 @@ if ($result_request && $row_request = $result_request->fetch_assoc()) {
                                                 Total Item (Tersedia)</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php
-// Include the database connection file
-require 'db.php';
+                                                // Include the database connection file
+                                                require 'db.php';
 
-// SQL query to count the total rows in the 'inventory' table
-$sql = "SELECT COUNT(*) AS total_rows FROM inventory WHERE status = 'available'";
+                                                // SQL query to count the total rows in the 'inventory' table
+                                                $sql = "SELECT COUNT(*) AS total_rows FROM inventory WHERE status = 'available'";
 
-// Execute the query
-$result = $conn->query($sql);
+                                                // Execute the query
+                                                $result = $conn->query($sql);
 
-// Check if the query was successful
-if ($result) {
-    // Fetch the result
-    $row = $result->fetch_assoc();
-    // Output the total row count
-    echo $row['total_rows'];
-} else {
-    // If the query failed
-    echo "Error: " . $conn->error;
-}
+                                                // Check if the query was successful
+                                                if ($result) {
+                                                    // Fetch the result
+                                                    $row = $result->fetch_assoc();
+                                                    // Output the total row count
+                                                    echo $row['total_rows'];
+                                                } else {
+                                                    // If the query failed
+                                                    echo "Error: " . $conn->error;
+                                                }
 
-// Close the database connection
-$conn->close();
-?>
-
+                                                // Close the database connection
+                                                $conn->close();
+                                                ?>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -459,29 +389,29 @@ $conn->close();
                                                 Material Requests</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php
-// Include the database connection file
-require 'db.php';
+                                                // Include the database connection file
+                                                require 'db.php';
 
-// SQL query to count the total rows in the 'inventory' table
-$sql = "SELECT COUNT(*) AS total_rows FROM material_request";
+                                                // SQL query to count the total rows in the 'inventory' table
+                                                $sql = "SELECT COUNT(*) AS total_rows FROM material_request";
 
-// Execute the query
-$result = $conn->query($sql);
+                                                // Execute the query
+                                                $result = $conn->query($sql);
 
-// Check if the query was successful
-if ($result) {
-    // Fetch the result
-    $row = $result->fetch_assoc();
-    // Output the total row count
-    echo $row['total_rows'];
-} else {
-    // If the query failed
-    echo "Error: " . $conn->error;
-}
+                                                // Check if the query was successful
+                                                if ($result) {
+                                                    // Fetch the result
+                                                    $row = $result->fetch_assoc();
+                                                    // Output the total row count
+                                                    echo $row['total_rows'];
+                                                } else {
+                                                    // If the query failed
+                                                    echo "Error: " . $conn->error;
+                                                }
 
-// Close the database connection
-$conn->close();
-?>
+                                                // Close the database connection
+                                                $conn->close();
+                                                ?>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -504,29 +434,29 @@ $conn->close();
                                                 <div class="col-auto">
                                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
                                                     <?php
-// Include the database connection file
-require 'db.php';
+                                                        // Include the database connection file
+                                                        require 'db.php';
 
-// SQL query to count the total rows in the 'inventory' table
-$sql = "SELECT COUNT(*) AS total_rows FROM inventory WHERE status = 'taken'";
+                                                        // SQL query to count the total rows in the 'inventory' table
+                                                        $sql = "SELECT COUNT(*) AS total_rows FROM inventory WHERE status = 'taken'";
 
-// Execute the query
-$result = $conn->query($sql);
+                                                        // Execute the query
+                                                        $result = $conn->query($sql);
 
-// Check if the query was successful
-if ($result) {
-    // Fetch the result
-    $row = $result->fetch_assoc();
-    // Output the total row count
-    echo $row['total_rows'];
-} else {
-    // If the query failed
-    echo "Error: " . $conn->error;
-}
+                                                        // Check if the query was successful
+                                                        if ($result) {
+                                                            // Fetch the result
+                                                            $row = $result->fetch_assoc();
+                                                            // Output the total row count
+                                                            echo $row['total_rows'];
+                                                        } else {
+                                                            // If the query failed
+                                                            echo "Error: " . $conn->error;
+                                                        }
 
-// Close the database connection
-$conn->close();
-?>
+                                                        // Close the database connection
+                                                        $conn->close();
+                                                        ?>
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -556,29 +486,29 @@ $conn->close();
                                                 Pending Material Requests</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php
-// Include the database connection file
-require 'db.php';
+                                                // Include the database connection file
+                                                require 'db.php';
 
-// SQL query to count the total rows in the 'inventory' table
-$sql = "SELECT COUNT(*) AS total_rows FROM material_request WHERE status = 'pending'";
+                                                // SQL query to count the total rows in the 'inventory' table
+                                                $sql = "SELECT COUNT(*) AS total_rows FROM material_request WHERE status = 'pending'";
 
-// Execute the query
-$result = $conn->query($sql);
+                                                // Execute the query
+                                                $result = $conn->query($sql);
 
-// Check if the query was successful
-if ($result) {
-    // Fetch the result
-    $row = $result->fetch_assoc();
-    // Output the total row count
-    echo $row['total_rows'];
-} else {
-    // If the query failed
-    echo "Error: " . $conn->error;
-}
+                                                // Check if the query was successful
+                                                if ($result) {
+                                                    // Fetch the result
+                                                    $row = $result->fetch_assoc();
+                                                    // Output the total row count
+                                                    echo $row['total_rows'];
+                                                } else {
+                                                    // If the query failed
+                                                    echo "Error: " . $conn->error;
+                                                }
 
-// Close the database connection
-$conn->close();
-?>
+                                                // Close the database connection
+                                                $conn->close();
+                                                ?>
                                             </div>
                                         </div>
                                         <div class="col-auto">
